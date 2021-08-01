@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import navReducer from "./slices/reducers";
+import navReducer from "./slices/navSlice.js";
 
 const store = configureStore({
 	reducer: {
