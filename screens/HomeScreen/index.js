@@ -1,12 +1,17 @@
 import React from 'react'
+import styles from './styles';
 import { GOOGLE_MAPS_KEY } from "@env";
+import { useDispatch } from 'react-redux';
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../../components/NavOptions';
+import { setDestination, setOrigin } from '../../slices/navSlice';
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import styles from './styles';
 
 const HomeScreen = () => {
+
+    const dispatch = useDispatch()
+
     return (
 		<SafeAreaView style={tw`bg-white h-full`}>
 			<View style={tw`p-5`}>
@@ -28,9 +33,14 @@ const HomeScreen = () => {
 						}
 					}}
                     onPress={(data, details = null) => {
-                        console.log("hit")
-                        console.log(data)
-                        console.log(details);
+                        dispatch(
+							setOrigin({
+								location: details.geometry.location,
+								description: data.description
+							})
+						);
+
+                        dispatch(setDestination(null))
                     }}
                     fetchDetails={true}
 					enablePoweredByContainer={false}
