@@ -12,7 +12,8 @@ import {
 } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { selectTravelTimeInformation } from "../../slices/navSlice.js";
-
+import "intl";
+import "intl/locale-data/jsonp/en";
 
 const RideOptionCard = () => {
 	const navigation = useNavigation();
@@ -50,7 +51,9 @@ const RideOptionCard = () => {
 					style={tw`absolute top-3 left-5 z-50 p-3 rounded-full`}>
 					<Icon name="chevron-left" type="fontawesome" />
 				</TouchableOpacity>
-				<Text style={tw`text-center py-5 text-xl`}>Select a Ride</Text>
+				<Text style={tw`text-center py-5 text-xl`}>
+					Select a ride - {travelTimeInformation?.distance.text}
+				</Text>
 			</View>
 
 			<FlatList
@@ -77,9 +80,22 @@ const RideOptionCard = () => {
 							<Text style={tw`text-xl font-semibold`}>
 								{title}
 							</Text>
-							<Text>Travel time</Text>
+							<Text>
+								{travelTimeInformation?.duration.text} Travel
+								Time
+							</Text>
 						</View>
-						<Text>$100</Text>
+						<Text style={tw`text-lg`}>
+							{new Intl.NumberFormat("en-US", {
+								style: "currency",
+								currency: "USD"
+							}).format(
+								(travelTimeInformation?.duration.value *
+									SURGE_CHARGE_RATE *
+									multiplier) /
+									100
+							)}
+						</Text>
 					</TouchableOpacity>
 				)}
 			/>

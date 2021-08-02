@@ -9,6 +9,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import HomeScreen from './screens/HomeScreen/index.js';
 import MapScreen from './screens/MapScreen/index.js';
 
+
 export default function App() {
 
   const Stack = createStackNavigator();
