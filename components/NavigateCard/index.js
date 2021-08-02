@@ -2,12 +2,14 @@ import React from 'react';
 import styles from "./styles"
 import { GOOGLE_MAPS_KEY } from "@env";
 import { useDispatch } from 'react-redux';
+import { Icon } from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
 import { setDestination } from '../../slices/navSlice';
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import NavFavorites from '../NavFavorites';
+import NavCardBottom from '../NavCardBottom';
 
 const NavigateCard = () => {
 
@@ -46,6 +48,8 @@ const NavigateCard = () => {
 
 				<NavFavorites />
 			</View>
+
+			<NavCardBottom/>
 		</SafeAreaView>
 	);
 }
