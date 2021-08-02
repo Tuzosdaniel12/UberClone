@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="723fc270-551d-4ff1-ae0e-29ee0233139b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/HomeScreen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/MapScreen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/MapScreen/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NavigateCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/NavigateCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/RideOptionCard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/RideOptionCard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slices/navSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/slices/navSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +40,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1627883798534">
+    <state x="92" y="92" width="1736" height="856" key="AVDManager" timestamp="1627894685945">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1627883798534" />
+    <state x="92" y="92" width="1736" height="856" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1627894685945" />
     <state x="2012" y="92" width="1736" height="856" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1627814844665" />
   </component>
 </project>
