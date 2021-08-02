@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles';
+import styles, {googlePlacesContainer} from './styles';
 import { GOOGLE_MAPS_KEY } from "@env";
 import { useDispatch } from 'react-redux';
 import tw from 'tailwind-react-native-classnames'
@@ -7,6 +7,7 @@ import NavOptions from '../../components/NavOptions';
 import { setDestination, setOrigin } from '../../slices/navSlice';
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import NavFavorites from '../../components/NavFavorites';
 
 const HomeScreen = () => {
 
@@ -24,25 +25,18 @@ const HomeScreen = () => {
 
 				<GooglePlacesAutocomplete
 					placeholder="Where From?"
-					styles={{
-						container: {
-							flex: 0
-						},
-						textInput: {
-							fontSize: 18
-						}
-					}}
-                    onPress={(data, details = null) => {
-                        dispatch(
+					styles={googlePlacesContainer}
+					onPress={(data, details = null) => {
+						dispatch(
 							setOrigin({
 								location: details.geometry.location,
 								description: data.description
 							})
 						);
 
-                        dispatch(setDestination(null))
-                    }}
-                    fetchDetails={true}
+						dispatch(setDestination(null));
+					}}
+					fetchDetails={true}
 					enablePoweredByContainer={false}
 					minLength={2}
 					query={{
@@ -54,6 +48,7 @@ const HomeScreen = () => {
 				/>
 
 				<NavOptions />
+                <NavFavorites/>
 			</View>
 		</SafeAreaView>
 	);

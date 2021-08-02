@@ -8,4 +8,13 @@ const styles = StyleSheet.create({
 	}
 });
 
+export const googlePlacesContainer = StyleSheet.create({
+	container: {
+		flex: 0
+	},
+	textInput: {
+		fontSize: 18
+	}
+});
+
 export default styles;
