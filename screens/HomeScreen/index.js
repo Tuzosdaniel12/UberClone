@@ -1,18 +1,26 @@
 import React from 'react'
-import styles, {googlePlacesContainer} from './styles';
-import { GOOGLE_MAPS_KEY } from "@env";
+import styles, { googlePlacesContainer } from "./styles";
 import { useDispatch } from 'react-redux';
 import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../../components/NavOptions';
-import { setDestination, setOrigin } from '../../slices/navSlice';
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { View, SafeAreaView, Image } from "react-native";
 import NavFavorites from '../../components/NavFavorites';
+import { setDestination, setOrigin } from '../../slices/navSlice';
+import GoogleAutocomplete from "../../components/GoogleAutocomplete";
 
 const HomeScreen = () => {
 
     const dispatch = useDispatch()
 
+	const onPress = (data, details = null) => {
+		dispatch(
+			setOrigin({
+				location: details.geometry.location,
+				description: data.description
+			})
+		);
+		dispatch(setDestination(null));
+	}
     return (
 		<SafeAreaView style={tw`bg-white h-full`}>
 			<View style={tw`p-5`}>
@@ -22,33 +30,13 @@ const HomeScreen = () => {
 						uri: "https://links.papareact.com/gzs"
 					}}
 				/>
-
-				<GooglePlacesAutocomplete
-					placeholder="Where From?"
+				<GoogleAutocomplete
+					placeholder="Where To?"
 					styles={googlePlacesContainer}
-					onPress={(data, details = null) => {
-						dispatch(
-							setOrigin({
-								location: details.geometry.location,
-								description: data.description
-							})
-						);
-
-						dispatch(setDestination(null));
-					}}
-					fetchDetails={true}
-					enablePoweredByContainer={false}
-					minLength={2}
-					query={{
-						key: GOOGLE_MAPS_KEY,
-						language: "en"
-					}}
-					nearbyPlacesAPI="GooglePlaceSearch"
-					debounce={400}
+					onPress={onPress}
 				/>
-
 				<NavOptions />
-                <NavFavorites/>
+				<NavFavorites />
 			</View>
 		</SafeAreaView>
 	);
