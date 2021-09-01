@@ -26,7 +26,7 @@ none at this time
 
 ## Example
 
-![video](https://giphy.com/gifs/7SdSydZqzNRRhxB1zk)
+![video](https://media.giphy.com/media/7SdSydZqzNRRhxB1zk/giphy.gif?cid=790b76116c14792560e0315c10d1693541ef0b9e2b14569a&rid=giphy.gif&ct=g)
 
 ## Questions
 email, or any other form of contact at my portfolio
